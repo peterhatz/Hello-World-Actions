@@ -3,7 +3,7 @@ name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
   processId:  # id of input
-    description: 'Who to greet'
+    description: 'processId!'
     required: true
     default: 'World'
 outputs:
