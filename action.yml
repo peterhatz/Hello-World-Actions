@@ -1,5 +1,5 @@
 # action.yml
-name: 'Hello World'
+name: 'xHello World'
 description: 'Greet someone and record the time'
 inputs:
   processId:  # id of input
