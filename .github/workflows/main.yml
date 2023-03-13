@@ -23,3 +23,4 @@ jobs:
         chmod +x /home/peter/src/PAC/initcrPackage.sh
         /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=${{ env.componentId }} packageVersion=$ver notes="$notes"
       shell: bash
+      
