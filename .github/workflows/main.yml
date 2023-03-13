@@ -18,7 +18,7 @@ jobs:
         ver: ${{ steps.read_file.outputs.inVer }}
         notes: ${{ steps.read_file.outputs.inNotes }}
       run: |
-        #echo $ver
+        echo $ver
         #echo $notes
         chmod +x /home/peter/src/PAC/initcrPackage.sh
         /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=${{ env.componentId }} packageVersion=${{ env.ver }} notes="$notes"
