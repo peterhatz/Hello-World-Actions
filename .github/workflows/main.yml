@@ -4,13 +4,13 @@ jobs:
   crPackage:
     runs-on: self-hosted
     steps:
-    - name: Set environment variable
-      env:
-        MY_VARIABLE: ${{ steps.read_file.outputs.file_content }}
-      run: echo $MY_VARIABLE
     - name: Read file
       id: read_file
-      run: echo "::set-output name=file_content::$(cat procGeneral)"
+      run: echo "::set-output name=notes_content::$(grep notes= procGeneral)"
+    - name: Set environment variable
+      env:
+        notes: ${{ steps.read_file.outputs.notes_content }}
+      run: echo $notes
     #- name: Get name of changed file
     #  run: echo ${{ github.event.head_commit.modified }}
     - uses: actions/checkout@v3
