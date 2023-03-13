@@ -18,7 +18,7 @@ jobs:
            echo "::set-output name=inNotes::$(grep '^notes=' $file | cut -f2 -d'=')"
            
            chmod +x /home/peter/src/PAC/initcrPackage.sh
-           /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=${{ steps.get_changed_files.outputs.inComponentId }} packageVersion=$inVer notes="$inNotes"
+           /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=${{ outputs.inComponentId }} packageVersion=$inVer notes="$inNotes"
         done
      #shell: bash
 #    - name: Read file
