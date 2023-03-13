@@ -9,7 +9,7 @@ jobs:
       run: |
         for file in "${{ github.event.head_commit.modified[@] }}"; do
             echo "Modified file: $file"
-          done
+        done
         #echo "::set-output name=inComponentId::$(grep '^componentId=' procGeneral | cut -f2 -d'=')"
         #echo "::set-output name=inVer::$(grep '^ver=' procGeneral | cut -f2 -d'=')"
         #echo "::set-output name=inNotes::$(grep '^notes=' procGeneral | cut -f2 -d'=')"
