@@ -19,8 +19,8 @@ jobs:
         authToken: ${{ secrets.BOOMI }}
       run: |
         for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-           x = $(grep '^componentId=' $file | cut -f2 -d'=')"
-           echo $x
+           #x = $(grep '^componentId=' $file | cut -f2 -d'=')"
+           cat $file
            
            chmod +x /home/peter/src/PAC/initcrPackage.sh
            /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId={{ x }}
