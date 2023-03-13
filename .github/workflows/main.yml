@@ -8,16 +8,16 @@ jobs:
       id: read_file
       run:
         echo "::set-output name=inComponentId::$(grep componentId= procGeneral)"
-        echo "::set-output name=inVer::$(grep ver= procGeneral)"
-        echo "::set-output name=inNotes::$(grep notes= procGeneral)"
+        #echo "::set-output name=inVer::$(grep ver= procGeneral)"
+        #echo "::set-output name=inNotes::$(grep notes= procGeneral)"
     - name: Set environment variable
       env:
         componentId: ${{ steps.read_file.outputs.inComponentId }}
-        ver: ${{ steps.read_file.outputs.inVer }}
-        notes: ${{ steps.read_file.outputs.inNotes }}
-      run:
+        #ver: ${{ steps.read_file.outputs.inVer }}
+        #notes: ${{ steps.read_file.outputs.inNotes }}
+      #run:
         #echo $componentId
-        3echo $notes
+        #echo $notes
     #- name: Get name of changed file
     #  run: echo ${{ github.event.head_commit.modified }}
     - uses: actions/checkout@v3
