@@ -4,11 +4,13 @@ jobs:
   crPackage:
     runs-on: self-hosted
     steps:
-    #- uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Run script file
-      env:
-           componentId: 11121
+      #env:
+           #componentId: 11121
       run: |
+         content=`cat procGeneral`
+         echo "::set-output name=componentId::$content"
          chmod +x /home/peter/src/PAC/initcrPackage.sh
-         /home/peter/src/PAC/initcrPackage.sh
+         /home/peter/src/PAC/initcrPackage.sh $componentId
       shell: bash
