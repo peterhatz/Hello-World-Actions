@@ -6,7 +6,7 @@ jobs:
     steps:
     - name: Read file
       id: read_file
-      run: |
+      run:
         echo "::set-output name=inComponentId::$(grep '^componentId=' procGeneral)"
         echo "::set-output name=inVer::$(grep '^ver=' procGeneral)"
         echo "::set-output name=inNotes::$(grep '^notes=' procGeneral)"
@@ -24,4 +24,3 @@ jobs:
         chmod +x /home/peter/src/PAC/initcrPackage.sh
         /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=${{ env.componentId }} packageVersion=${{ env.ver }} notes="${{ env.notes }}"
       shell: bash
-
