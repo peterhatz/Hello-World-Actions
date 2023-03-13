@@ -5,6 +5,8 @@ jobs:
     runs-on: self-hosted
     steps:
     - uses: actions/checkout@v3
+    - name: Get name of changed file
+      run: echo "file: ${github.event.head_commit.modified[0]}"
     - name: Run script file
       env:
         authToken: ${{ secrets.BOOMI }}
