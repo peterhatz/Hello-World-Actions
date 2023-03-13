@@ -6,7 +6,11 @@ jobs:
     steps:
     - name: Get changed files
       id: changed-files
-      uses: tj-actions/changed-files@v35 
+      uses: tj-actions/changed-files@v35
+      with:
+          files: |
+            **/*.txt
+          #files_ignore: **/*.yml
     - name: List changed files
       id: get_changed_files             
       env:
