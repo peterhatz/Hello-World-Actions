@@ -23,7 +23,7 @@ jobs:
            _ver=$(grep '^ver=' $file | cut -f2 -d'=')
            _notes=$(grep '^notes=' $file | cut -f2 -d'=')
            chmod +x /home/peter/src/PAC/initcrPackage.sh
-           /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId={{ _compId }} packageVersion={{ _ver }} notes={{ _notes }}
+           /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=${{ _compId }} packageVersion=${{ _ver }} notes=${{ _notes }}
         done
      #shell: bash
 #    - name: Read file
