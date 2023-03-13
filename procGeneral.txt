@@ -1,5 +1,5 @@
 componentId=5fafdbff-5a56-4029-aad2-771291006520
 ver=0.9.3
 targetEnv=1.Dev
-notes=Deploy from GitHub
+notes=Deploy from GitHub.
 listenerStatus=PAUSED
