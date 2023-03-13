@@ -1,6 +1,5 @@
 componentId=5fafdbff-5a56-4029-aad2-771291006520
-#packageId=69ac23ad-e84d-49c1-bc24-deff60b52117
-ver=0.9.1
+ver=0.9.3
 targetEnv=1.Dev
 notes=Deploy from GitHub
 listenerStatus=PAUSED
