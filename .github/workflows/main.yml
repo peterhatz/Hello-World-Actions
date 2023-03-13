@@ -20,9 +20,11 @@ jobs:
       run: |
         for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
            compId=$(grep '^componentId=' $file | cut -f2 -d'=')
+           compVer=$(grep '^ver=' $file | cut -f2 -d'=')
+           compNotes=$(grep '^notes=' $file | cut -f2 -d'=')
            
            chmod +x /home/peter/src/PAC/initcrPackage.sh
-           /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=$compId packageVersion=${{ ver }} notes=${{ notes }}
+           /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=$compId packageVersion=$compVer notes=$compNotes
         done
      #shell: bash
 #    - name: Read file
@@ -43,4 +45,3 @@ jobs:
         #echo $notes
         #chmod +x /home/peter/src/PAC/initcrPackage.sh
         #/home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=${{ env.componentId }} packageVersion=$ver notes="$notes"
-      
