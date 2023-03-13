@@ -4,7 +4,7 @@ jobs:
   crPackage:
     runs-on: self-hosted
     steps:
-    - uses: actions/checkout@v2
+    #- uses: actions/checkout@v2
     - name: Run script file
       run: |
          chmod +x /home/peter/src/PAC/initcrPackage.sh
