@@ -1,4 +1,4 @@
-name: create-map
+name: createPackage
 on: push
 jobs:
   run_tests:
