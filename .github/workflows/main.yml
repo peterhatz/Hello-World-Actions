@@ -16,8 +16,8 @@ jobs:
             
             chmod +x /home/peter/src/PAC/initcrPackage.sh
             /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=$inComponentId packageVersion=$inVer notes="$inNotes"
-            shell: bash
           done
+     #shell: bash
 #    - name: Read file
 #      id: read_file
 #      run: |
