@@ -8,15 +8,18 @@ jobs:
       id: changed-files
       uses: tj-actions/changed-files@v35 
     - name: List changed files
+      id: get_changed_files             
+      env:
+        authToken: ${{ secrets.BOOMI }}    
       run: |
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo "::set-output name=inComponentId::$(grep '^componentId=' $file | cut -f2 -d'=')"
-            echo "::set-output name=inVer::$(grep '^ver=' $file | cut -f2 -d'=')"
-            echo "::set-output name=inNotes::$(grep '^notes=' $file | cut -f2 -d'=')"
-            
-            chmod +x /home/peter/src/PAC/initcrPackage.sh
-            /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=$inComponentId packageVersion=$inVer notes="$inNotes"
-          done
+        for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+           echo "::set-output name=inComponentId::$(grep '^componentId=' $file | cut -f2 -d'=')"
+           echo "::set-output name=inVer::$(grep '^ver=' $file | cut -f2 -d'=')"
+           echo "::set-output name=inNotes::$(grep '^notes=' $file | cut -f2 -d'=')"
+           
+           chmod +x /home/peter/src/PAC/initcrPackage.sh
+           /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=${{ steps.get_changed_files.outputs.inComponentId }} packageVersion=$inVer notes="$inNotes"
+        done
      #shell: bash
 #    - name: Read file
 #      id: read_file
