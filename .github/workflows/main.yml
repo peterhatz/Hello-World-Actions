@@ -22,6 +22,7 @@ jobs:
            echo "xxx"
            echo "xxy"
            echo "::set-output name=inComponentId::$(grep '^componentId=' $file | cut -f2 -d'=')"
+           chmod +x /home/peter/src/PAC/initcrPackage.sh
         done
      #shell: bash
 #    - name: Read file
