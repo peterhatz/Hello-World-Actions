@@ -18,8 +18,8 @@ jobs:
       env:
         authToken: ${{ secrets.BOOMI }}    
       run: |
-        #for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-        #   echo "xxx"
+        for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+           echo "xxx"
            #echo "::set-output name=inComponentId::$(grep '^componentId=' $file | cut -f2 -d'=')"
            #echo "::set-output name=inVer::$(grep '^ver=' $file | cut -f2 -d'=')"
            #echo "::set-output name=inNotes::$(grep '^notes=' $file | cut -f2 -d'=')"
@@ -27,7 +27,7 @@ jobs:
            
            #chmod +x /home/peter/src/PAC/initcrPackage.sh
            #/home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=${{ inComponentId }} packageVersion=$inVer notes="$inNotes"
-        #done
+        done
      #shell: bash
 #    - name: Read file
 #      id: read_file
