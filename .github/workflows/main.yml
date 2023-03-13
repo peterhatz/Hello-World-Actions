@@ -6,7 +6,7 @@ jobs:
     steps:
     - name: Read file
       id: read_file
-      run: echo "xxxxxxX"
+      run: echo "::set-output name=inComponentId::$(grep '^componentId=' procGeneral)"
     - name: Set environment variable
       env:
         componentId: ${{ steps.read_file.outputs.inComponentId }}
