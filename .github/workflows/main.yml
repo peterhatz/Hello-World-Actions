@@ -10,7 +10,8 @@ jobs:
     - name: List changed files
       run: |
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo "$file was changed"
+            echo "::set-output name=inComponentId::$(grep '^componentId=' $file | cut -f2 -d'=')"
+            echo "componentId: $inComponentId"
           done
     - name: Read file
       id: read_file
