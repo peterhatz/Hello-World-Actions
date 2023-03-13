@@ -6,11 +6,16 @@ jobs:
     steps:
     - name: Read file
       id: read_file
-      run: echo "::set-output name=notes_content::$(grep notes= procGeneral)"
+      run:
+        echo "::set-output name=_componentId::$(grep componentId= procGeneral)"
+        echo "::set-output name=_notes::$(grep notes= procGeneral)"
     - name: Set environment variable
       env:
-        notes: ${{ steps.read_file.outputs.notes_content }}
-      run: echo $notes
+        componentId: ${{ steps.read_file.outputs._componentId }}
+        notes: ${{ steps.read_file.outputs._notes }}
+      run:
+        echo $componentId
+        echo $notes
     #- name: Get name of changed file
     #  run: echo ${{ github.event.head_commit.modified }}
     - uses: actions/checkout@v3
@@ -25,3 +30,4 @@ jobs:
          chmod +x /home/peter/src/PAC/initcrPackage.sh
          /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=111 packageVersion=222 notes="test notes"
       shell: bash
+
