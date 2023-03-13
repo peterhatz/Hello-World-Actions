@@ -22,7 +22,7 @@ jobs:
            compId=$(grep '^componentId=' $file | cut -f2 -d'=')
            
            chmod +x /home/peter/src/PAC/initcrPackage.sh
-           /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=${{ compId }} packageVersion=${{ ver }} notes=${{ notes }}
+           /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=$compId packageVersion=${{ ver }} notes=${{ notes }}
         done
      #shell: bash
 #    - name: Read file
