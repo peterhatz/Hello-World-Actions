@@ -10,7 +10,7 @@ jobs:
       with:
           files: |
             **/*.txt
-          #files_ignore: **/*.yml
+          files_ignore: .github/workflows/*
     - name: List changed files
       id: get_changed_files             
       env:
