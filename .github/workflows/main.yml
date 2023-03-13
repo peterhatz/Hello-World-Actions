@@ -10,7 +10,8 @@ jobs:
         authToken: ${{ secrets.BOOMI }}
       run: |
          content=`cat procGeneral`
-         echo ${{ secrets.BOOMI }}
+         echo $GITHUB_EVENT_NAME
+         #echo ${{ secrets.BOOMI }}
          #echo "::set-output name=componentId::$content"
          chmod +x /home/peter/src/PAC/initcrPackage.sh
          /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=111 packageVersion=222 notes="test notes"
