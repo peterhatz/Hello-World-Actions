@@ -13,5 +13,5 @@ jobs:
          echo ${{ secrets.BOOMI }}
          #echo "::set-output name=componentId::$content"
          chmod +x /home/peter/src/PAC/initcrPackage.sh
-         /home/peter/src/PAC/initcrPackage.sh $componentId
+         /home/peter/src/PAC/initcrPackage.sh ${{ secrets.BOOMI }} 111 222 "test notes"
       shell: bash
