@@ -4,26 +4,12 @@ jobs:
   crPackage:
     runs-on: self-hosted
     steps:
-    - name: Read file
-      id: read_file
-      run: |
-        for file in "${{ github.event.head_commit.modified[@] }}"; do
-            echo "Modified file: $file"
-        done
-        #echo "::set-output name=inComponentId::$(grep '^componentId=' procGeneral | cut -f2 -d'=')"
-        #echo "::set-output name=inVer::$(grep '^ver=' procGeneral | cut -f2 -d'=')"
-        #echo "::set-output name=inNotes::$(grep '^notes=' procGeneral | cut -f2 -d'=')"
-    - uses: actions/checkout@v3
-    - name: Run script file
-      env:
-        authToken: ${{ secrets.BOOMI }}
-        componentId: ${{ steps.read_file.outputs.inComponentId }}
-        ver: ${{ steps.read_file.outputs.inVer }}
-        notes: ${{ steps.read_file.outputs.inNotes }}
-      run: |
-        echo $ver
-        #echo $notes
-        #chmod +x /home/peter/src/PAC/initcrPackage.sh
-        #/home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=${{ env.componentId }} packageVersion=$ver notes="$notes"
+    - name: Get changed files
+      id: changed-files
+    - uses: tj-actions/changed-files@v35 
+    - name: List all changed files
+        run: |
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            echo "$file was changed"
+          done
       shell: bash
-      
