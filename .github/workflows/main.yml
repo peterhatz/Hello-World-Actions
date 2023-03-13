@@ -17,6 +17,5 @@ jobs:
         authToken: ${{ secrets.BOOMI }}
       run: |
         chmod +x /home/peter/src/PAC/initcrPackage.sh
-        /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=${{ componentId }} packageVersion=${{ ver }} notes="${{ notes }}"
       shell: bash
 
