@@ -10,7 +10,7 @@ jobs:
            #componentId: 11121
       run: |
          content=`cat procGeneral`
-         echo ${{ secrets.TOKEN }}
+         echo ${{ secrets.BOOMI }}
          #echo "::set-output name=componentId::$content"
          chmod +x /home/peter/src/PAC/initcrPackage.sh
          /home/peter/src/PAC/initcrPackage.sh $componentId
