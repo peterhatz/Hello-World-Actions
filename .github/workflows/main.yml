@@ -24,7 +24,7 @@ jobs:
            compNotes=$(grep '^notes=' $file | cut -f2 -d'=')
            
            chmod +x /home/peter/src/PAC/initcrPackage.sh
-           /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=$compId packageVersion=$compVer notes=$compNotes
+           /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=$compId packageVersion=$compVer notes="$compNotes"
         done
      #shell: bash
 #    - name: Read file
