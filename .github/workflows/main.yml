@@ -20,6 +20,7 @@ jobs:
       run: |
         for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
            echo "xxx"
+           echo "xxy"
         done
      #shell: bash
 #    - name: Read file
