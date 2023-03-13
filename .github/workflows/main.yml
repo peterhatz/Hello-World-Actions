@@ -17,7 +17,6 @@ jobs:
       id: get_changed_files             
       env:
         authToken: ${{ secrets.BOOMI }}
-        inComponentId: ""
       run: |
         for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
            x = $(grep '^componentId=' $file | cut -f2 -d'=')"
