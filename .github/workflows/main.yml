@@ -25,8 +25,8 @@ jobs:
       env:
         authToken: ${{ secrets.BOOMI }}
       run: |
-         content=`cat procGeneral`
-         echo $GITHUB_EVENT_NAME
+         #content=`cat procGeneral`
+         #echo $GITHUB_EVENT_NAME
          #echo ${{ secrets.BOOMI }}
          #echo "::set-output name=componentId::$content"
          chmod +x /home/peter/src/PAC/initcrPackage.sh
