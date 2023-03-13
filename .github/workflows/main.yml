@@ -23,7 +23,7 @@ jobs:
            echo "xxy"
            echo "::set-output name=inComponentId::$(grep '^componentId=' $file | cut -f2 -d'=')"
            chmod +x /home/peter/src/PAC/initcrPackage.sh
-           /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }}
+           /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=$inComponentId
         done
      #shell: bash
 #    - name: Read file
