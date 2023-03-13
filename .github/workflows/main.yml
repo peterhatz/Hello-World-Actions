@@ -7,9 +7,12 @@ jobs:
     - name: Read file
       id: read_file
       run: |
-        echo "::set-output name=inComponentId::$(grep '^componentId=' procGeneral | cut -f2 -d'=')"
-        echo "::set-output name=inVer::$(grep '^ver=' procGeneral | cut -f2 -d'=')"
-        echo "::set-output name=inNotes::$(grep '^notes=' procGeneral | cut -f2 -d'=')"
+        for file in "${{ github.event.head_commit.modified[@] }}"; do
+            echo "Modified file: $file"
+          done
+        #echo "::set-output name=inComponentId::$(grep '^componentId=' procGeneral | cut -f2 -d'=')"
+        #echo "::set-output name=inVer::$(grep '^ver=' procGeneral | cut -f2 -d'=')"
+        #echo "::set-output name=inNotes::$(grep '^notes=' procGeneral | cut -f2 -d'=')"
     - uses: actions/checkout@v3
     - name: Run script file
       env:
@@ -20,7 +23,7 @@ jobs:
       run: |
         echo $ver
         #echo $notes
-        chmod +x /home/peter/src/PAC/initcrPackage.sh
-        /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=${{ env.componentId }} packageVersion=$ver notes="$notes"
+        #chmod +x /home/peter/src/PAC/initcrPackage.sh
+        #/home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=${{ env.componentId }} packageVersion=$ver notes="$notes"
       shell: bash
       
