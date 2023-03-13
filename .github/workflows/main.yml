@@ -1,5 +1,11 @@
 name: createPackage
-on: push
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - '.gitignore'
+      - '.github/workflows/**'
 jobs:
   crPackage:
     runs-on: self-hosted
@@ -7,10 +13,6 @@ jobs:
     - name: Get changed files
       id: changed-files
       uses: tj-actions/changed-files@v35
-      with:
-          files: |
-            **/*.txt
-          files_ignore: .github/workflows/*
     - name: List changed files
       id: get_changed_files             
       env:
@@ -22,8 +24,8 @@ jobs:
            #echo "::set-output name=inNotes::$(grep '^notes=' $file | cut -f2 -d'=')"
            #echo ${{ steps.get_changed_files.outputs.inComponentId }}
            
-           chmod +x /home/peter/src/PAC/initcrPackage.sh
-           /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=${{ inComponentId }} packageVersion=$inVer notes="$inNotes"
+           #chmod +x /home/peter/src/PAC/initcrPackage.sh
+           #/home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=${{ inComponentId }} packageVersion=$inVer notes="$inNotes"
         done
      #shell: bash
 #    - name: Read file
