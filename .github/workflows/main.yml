@@ -10,12 +10,13 @@ jobs:
     - name: Set environment variable
       env:
         componentId: ${{ steps.read_file.outputs.inComponentId }}
-      run: echo $inComponentId
+      run: echo $componentId
     - uses: actions/checkout@v3
     - name: Run script file
       env:
         authToken: ${{ secrets.BOOMI }}
       run: |
         chmod +x /home/peter/src/PAC/initcrPackage.sh
+        /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=${{ componentId }}
       shell: bash
 
