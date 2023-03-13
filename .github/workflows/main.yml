@@ -8,10 +8,12 @@ jobs:
       id: read_file
       run:
         echo "::set-output name=_componentId::$(grep componentId= procGeneral)"
+        echo "::set-output name=_ver::$(grep ver= procGeneral)"
         echo "::set-output name=_notes::$(grep notes= procGeneral)"
     - name: Set environment variable
       env:
         componentId: ${{ steps.read_file.outputs._componentId }}
+        ver: ${{ steps.read_file.outputs._ver }}
         notes: ${{ steps.read_file.outputs._notes }}
       run:
         echo $componentId
@@ -28,6 +30,6 @@ jobs:
          #echo ${{ secrets.BOOMI }}
          #echo "::set-output name=componentId::$content"
          chmod +x /home/peter/src/PAC/initcrPackage.sh
-         /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=111 packageVersion=222 notes="test notes"
+         /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=${{ componentId }} packageVersion=${{ ver }} notes="${{ notes }}"
       shell: bash
 
