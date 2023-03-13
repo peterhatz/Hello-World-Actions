@@ -22,8 +22,7 @@ jobs:
       env:
         authToken: ${{ secrets.BOOMI }}
       run: |
-        echo "xxx"
-         #chmod +x /home/peter/src/PAC/initcrPackage.sh
-         #/home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=${{ componentId }} packageVersion=${{ ver }} notes="${{ notes }}"
+        chmod +x /home/peter/src/PAC/initcrPackage.sh
+        /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=${{ componentId }} packageVersion=${{ ver }} notes="${{ notes }}"
       shell: bash
 
