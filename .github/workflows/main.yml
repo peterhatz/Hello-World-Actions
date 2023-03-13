@@ -15,14 +15,12 @@ jobs:
       uses: tj-actions/changed-files@v35
     - name: List changed files
       id: get_changed_files             
-      #env:
-      #  authToken: ${{ secrets.BOOMI }}    
+      env:
+        authToken: ${{ secrets.BOOMI }}
+        inComponentId: xxxxxx12
       run: |
         for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
            echo "::set-output name=inComponentId::$(grep '^componentId=' $file | cut -f2 -d'=')"
-           env:
-              authToken: ${{ secrets.BOOMI }}
-              componentId: ${{ inComponentId }}
            echo "xxx"
            echo "xxy"
            
