@@ -7,9 +7,9 @@ jobs:
     - name: Read file
       id: read_file
       run: |
-        echo "::set-output name=inComponentId::$(grep componentId= procGeneral)"
-        echo "::set-output name=inVer::$(grep ver= procGeneral)"
-        echo "::set-output name=inNotes::$(grep notes= procGeneral)"
+        echo "::set-output name=inComponentId::$(grep '^componentId=' procGeneral)"
+        echo "::set-output name=inVer::$(grep '^ver=' procGeneral)"
+        echo "::set-output name=inNotes::$(grep '^notes=' procGeneral)"
     - name: Set environment variable
       env:
         componentId: ${{ steps.read_file.outputs.inComponentId }}
