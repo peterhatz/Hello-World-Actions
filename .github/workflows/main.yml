@@ -9,8 +9,8 @@ jobs:
       run:
         echo "::set-output name=inComponentId::$(grep componentId= procGeneral)"
     - name: Set environment variable
-      env:
-        componentId: ${{ steps.read_file.outputs.inComponentId }}
+      #env:
+      #  componentId: ${{ steps.read_file.outputs.inComponentId }}
       run:
         echo $inComponentId
     - uses: actions/checkout@v3
