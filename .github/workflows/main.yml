@@ -2,7 +2,7 @@ name: createPackage
 on: push
 jobs:
   crPackage:
-    runs-on: mint-optiplex
+    runs-on: self-hosted
     steps:
     - uses: actions/checkout@v2
     - name: Run script file
