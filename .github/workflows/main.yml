@@ -4,6 +4,14 @@ jobs:
   crPackage:
     runs-on: self-hosted
     steps:
+    - name: Get changed files
+      id: changed-files
+      uses: tj-actions/changed-files@v35 
+    - name: List changed files
+      run: |
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            echo "$file was changed"
+          done
     - name: Read file
       id: read_file
       run: |
