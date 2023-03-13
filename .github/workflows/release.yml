@@ -2,7 +2,7 @@ name: deployPackage
 on:
   push:
     branches:
-      - master
+      - dev
     paths-ignore:
       - '.gitignore'
       - '.github/workflows/**'
