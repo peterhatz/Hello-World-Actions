@@ -16,6 +16,7 @@ jobs:
            echo "::set-output name=inComponentId::$(grep '^componentId=' $file | cut -f2 -d'=')"
            echo "::set-output name=inVer::$(grep '^ver=' $file | cut -f2 -d'=')"
            echo "::set-output name=inNotes::$(grep '^notes=' $file | cut -f2 -d'=')"
+           echo $inComponentId
            
            chmod +x /home/peter/src/PAC/initcrPackage.sh
            /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=${{ inComponentId }} packageVersion=$inVer notes="$inNotes"
