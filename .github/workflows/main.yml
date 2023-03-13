@@ -6,6 +6,8 @@ jobs:
     steps:
     #- uses: actions/checkout@v2
     - name: Run script file
+      env:
+           componentId: 11121
       run: |
          chmod +x /home/peter/src/PAC/initcrPackage.sh
          /home/peter/src/PAC/initcrPackage.sh
