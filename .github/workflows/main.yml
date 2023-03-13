@@ -6,8 +6,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Run script file
-      #env:
-           #componentId: 11121
+      env:
+        authToken: ${{ secrets.BOOMI }}
       run: |
          content=`cat procGeneral`
          echo ${{ secrets.BOOMI }}
