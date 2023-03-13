@@ -30,6 +30,6 @@ jobs:
          #echo ${{ secrets.BOOMI }}
          #echo "::set-output name=componentId::$content"
          chmod +x /home/peter/src/PAC/initcrPackage.sh
-         /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=${{ componentId }} packageVersion=${{ ver }} notes="${{ notes }}"
+         #/home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=${{ componentId }} packageVersion=${{ ver }} notes="${{ notes }}"
       shell: bash
 
