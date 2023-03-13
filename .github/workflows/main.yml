@@ -23,7 +23,7 @@ jobs:
            echo $x
            
            chmod +x /home/peter/src/PAC/initcrPackage.sh
-           /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId=$x
+           /home/peter/src/PAC/initcrPackage.sh authToken=${{ secrets.BOOMI }} componentId={{ x }}
         done
      #shell: bash
 #    - name: Read file
