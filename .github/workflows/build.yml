@@ -8,7 +8,8 @@ on:
       - '.github/workflows/**'
 jobs:
   crPackage:
-    runs-on: self-hosted
+    #runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     - name: Get changed files
       id: changed-files
