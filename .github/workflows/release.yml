@@ -15,8 +15,8 @@ jobs:
       uses: tj-actions/changed-files@v35
     - name: List changed files
       id: get_changed_files             
-      env:
-        authToken: ${{ secrets.BOOMI }}
+      #env:
+      #  authToken: ${{ secrets.BOOMI }}
       run: |
         for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
            componentId=$(grep '^componentId=' $file | cut -f2 -d'=')
